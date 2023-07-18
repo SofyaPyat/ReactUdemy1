@@ -1,0 +1,29 @@
+"use strict";
+
+console.log(4/0);
+
+const obj = {
+    name: "John",
+    age: 25,
+    isMarried: true
+};
+
+const arrObj = {
+    a: 'a',
+    1: 'b',
+    2: 'c',
+    abc: {
+        
+    }
+};
+const b = 'b';
+arrObj[b] = '1234';
+
+console.log(arrObj["b"])
+
+console.log(obj["isMarried"])
+
+let arr = [4, true, "isMar", false];
+
+console.log(arr);
+console.log(arr[3]);
