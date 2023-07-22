@@ -53,3 +53,39 @@ console.log(`https://someurl.com/${category}/4`);
 const user = "Ivan";
 
 alert(`Hello, ${user}`);
+
+let incr = 10, 
+    decr = 10;
+
+    // ++incr;
+    // --decr;
+
+
+    console.log(incr++);
+    console.log(decr--);
+
+    console.log(++incr);
+    console.log(--decr);
+
+    
+function getMathResult(base, repeat) {
+    if (typeof(repeat) == "number") {
+        let s = String(base);
+        for (let i = 1; i < repeat; i++) {
+            s = s + "---";
+            s = s + base * (i + 1);
+        }
+        return s;
+    } else {
+        return base;
+    }
+    
+}
+
+console.log(getMathResult(1, 17));
+
+function sayHello(personName) {
+    return ("Привет " + personName);
+}
+
+console.log(sayHello("alex"))
