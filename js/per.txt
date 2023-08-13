@@ -89,3 +89,222 @@ function sayHello(personName) {
 }
 
 console.log(sayHello("alex"))
+
+
+
+function showFirstMessage(text) {
+    console.log(text);
+}
+
+showFirstMessage("Hello world");
+
+function calc(a, b) {
+    return (a + b);
+}
+
+function ret() {
+    let r = 5;
+
+    return r;
+}
+
+let b = ret();
+
+console.log(b);
+
+const logger = function () {
+    console.log("Hello world!");
+};
+
+logger();
+
+
+const calc = (a, b) => a + b;
+// const calc = (a, b) => {return a + b};
+
+console.log(typeof(5))
+
+function copy(mainObj) {
+    let objCopy = {};
+
+    let key;
+    for (key in mainObj) {
+        objCopy[key] = mainObj[key];
+    }
+    return objCopy;
+}
+
+const nums = {
+    a: 5,
+    b: 7,
+    c: {
+        x: 12,
+        y: 37 
+    }      
+};
+
+const newObj = copy(nums);
+
+newObj.b = 387;
+//newObj.c.x = 147;
+
+console.log(nums);
+console.log(newObj);
+
+const add = {
+    d: 45,
+    e: 82,
+    f: {
+        i:34,
+        h:32
+    }
+};
+
+//console.log(Object.assign(nums, add));
+
+const clone = Object.assign({}, add);
+clone.d = 22;
+clone.f.h = 0;
+
+console.log(clone);
+console.log(add);
+
+
+const oldArray = [];
+
+const video = ['youtube','vimeo','rutube'];
+const blogs = ['wordpress', 'lifejournal','blogger'];
+const internet = [...video, ...blogs, 'vk', 'facebook'];
+
+console.log(internet);
+
+function log(a, b, c) {
+    console.log(a);
+    console.log(b);
+    console.log(c);
+}
+
+const nums2 = [2, 5, 7];
+ log(...nums2);
+
+
+ const array = ["a", "bvc", "fess"];
+ const newArray = [...array];
+
+ console.log(newArray);
+
+
+ const q = {
+    l: 543,
+    two: 43,
+    three: {
+        d: 4,
+        r: 32
+    }
+ };
+
+ const newObjct = {
+    ...q
+ }
+
+ console.log(newObjct);
+
+ newObjct.two = 2;
+ newObjct.three.d = 54;
+
+ console.log(newObjct);
+ console.log(q);
+
+
+
+ const personalPlanPeter = {
+    name: "Peter",
+    age: "29",
+    skills: {
+        languages: ['ru', 'eng'],
+        programmingLangs: {
+            js: '20%',
+            php: '10%'
+        },
+        exp: '1 month'
+    },
+    showAgeAndLangs(plan) {
+        res = `Мне ${plan.age} и я владею языками:`;
+        let langs = plan.skills.languages;
+        for (let i in langs) {
+            res = res + " " + langs[i].toUpperCase();
+            }
+        return res;
+    }
+};
+
+
+function showProgrammingLangs(plan) {
+    let res = "";
+    let langs = {};
+    langs = plan.skills.programmingLangs;
+    for (let key in langs) {
+        res = res + `Язык ${key} изучен на ${langs[key]} `;
+    }
+    return res;
+}
+
+console.log(showProgrammingLangs(personalPlanPeter));
+
+
+function showExperience(plan) {
+    let exp = {};
+    exp = plan.skills;
+    return exp.exp;
+}
+
+
+function showProgrammingLangs(plan) {
+    let res = "";
+    for (let key in plan.skills.programmingLangs) {
+        res = res + `Язык ${key} изучен на ${plan.skills.programmingLangs[key]} `;
+    }
+}
+
+
+const someString = 'This is some strange string';
+
+function reverse(str) {
+    if (typeof(str) == "string") {
+    let arr = str.split("");
+    const newArr = [];
+    let j = 0;
+    for (let i = arr.length - 1; i > 0; i--) {
+        newArr[j++] = arr[i];
+    }
+    return newArr.join("");
+    } else {
+        return "Ошибка!";
+    }
+}
+
+console.log(reverse(someString));
+
+const baseCurrencies = ['USD', 'EUR'];
+const additionalCurrencies = ['UAH', 'RUB', 'CNY'];
+
+function availableCurr(arr, missingCurr) {
+    if (arr.length == 0) {
+        return "Нет доступных валют";
+    } else {
+        let newArr = [];
+        if (typeof(missingCurr) == "string") {
+            misArr = missingCurr.split("\0");
+            newArr = arr.filter(x => !missingCurr.includes(x));
+        } else {
+            newArr = [...arr];
+        }
+        let res = "Доступные валюты:\n";
+        for (let i in newArr) {
+            res = res + `${newArr[i]}\n`
+        }
+        return res
+    }
+}
+
+console.log(availableCurr(['UAH', 'RUB', 'CNY'], 'CNY'));
